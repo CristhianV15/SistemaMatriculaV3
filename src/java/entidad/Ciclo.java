@@ -33,8 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "ciclo")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Ciclo.findAll", query = "SELECT c FROM Ciclo c")
-    , @NamedQuery(name = "Ciclo.findByIdCiclo", query = "SELECT c FROM Ciclo c WHERE c.idCiclo = :idCiclo")
+    @NamedQuery(name = "Ciclo.findByIdCiclo", query = "SELECT c FROM Ciclo c WHERE c.idCiclo = :idCiclo")
     , @NamedQuery(name = "Ciclo.findByNombreCiclo", query = "SELECT c FROM Ciclo c WHERE c.nombreCiclo = :nombreCiclo")
     , @NamedQuery(name = "Ciclo.findByEstado", query = "SELECT c FROM Ciclo c WHERE c.estado = :estado")
     , @NamedQuery(name = "Ciclo.findByCreado", query = "SELECT c FROM Ciclo c WHERE c.creado = :creado")})
@@ -58,6 +57,8 @@ public class Ciclo implements Serializable {
     private Collection<Salon> salonCollection;
 
     public Ciclo() {
+        estado=1;
+        creado= new Date();
     }
 
     public Ciclo(Integer idCiclo) {

@@ -53,6 +53,7 @@ public class ManagedApoderado {
     public void eliminarApoderado(Apoderado a){
          this.apoderadoFacadeLocal.remove(a);
     }
+  
     public void encontrarApoderado(Apoderado a){
         this.apoderado=a;
     }

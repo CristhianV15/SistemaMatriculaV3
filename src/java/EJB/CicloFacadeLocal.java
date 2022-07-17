@@ -25,7 +25,9 @@ public interface CicloFacadeLocal {
     Ciclo find(Object id);
 
     List<Ciclo> findAll();
-
+    //listar por estado
+    List<Ciclo> findByEstado();
+   
     List<Ciclo> findRange(int[] range);
 
     int count();

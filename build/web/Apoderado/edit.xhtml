@@ -1,12 +1,91 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/template/plantilla.xhtml">
+        <ui:define name="contenido">
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        Apoderado
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <!-- general form elements -->
+                            <div class="box box-primary">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Editar Año Academico</h3>
+                                </div><!-- /.box-header -->
+                                <!-- form start -->
+                                <h:form>
+                                    <h:inputHidden value="#{managedApoderado.apoderado.idApoderado}"></h:inputHidden>
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <h:outputLabel value="Nombres" ></h:outputLabel>
+                                            <br></br>
+                                            <h:inputText value="#{managedApoderado.apoderado.nombres}" class="form-control"> </h:inputText>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:outputLabel value="Apellidos paternos" ></h:outputLabel><br></br>
+                                            <h:inputText value="#{managedApoderado.apoderado.apellidoPaterno}" class="form-control"> </h:inputText>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:outputLabel value="Apellidos maternos" ></h:outputLabel><br></br>
+                                            <h:inputText value="#{managedApoderado.apoderado.apellidoMaterno}" class="form-control"> </h:inputText>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <h:outputLabel value="Tipo de documento" ></h:outputLabel><br></br>
+                                                <div class="col-sm-6">
+                                                    <h:selectOneMenu value="#{managedApoderado.apoderado.tipoDocumento}">
+                                                        <f:selectItem itemValue="DNI" itemLabel="DNI"></f:selectItem>
+                                                        <f:selectItem itemValue="Pasaporte" itemLabel="Pasaporte"></f:selectItem>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:outputLabel value="Número de documento" ></h:outputLabel><br></br>
+                                            <h:inputText value="#{managedApoderado.apoderado.numeroDocumento}" class="form-control"> </h:inputText>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:outputLabel value="Correo electronico" ></h:outputLabel><br></br>
+                                            <h:inputText value="#{managedApoderado.apoderado.email}" class="form-control"> </h:inputText>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:outputLabel value="Número de celular" ></h:outputLabel><br></br>
+                                            <h:inputText value="#{managedApoderado.apoderado.celular}" class="form-control"> </h:inputText>
+                                        </div>
+                                        <div class="form-group">
+                                            <h:outputLabel value="Direccion" ></h:outputLabel><br></br>
+                                            <h:inputText value="#{managedApoderado.apoderado.direccion}" class="form-control" ></h:inputText>
+                                        </div>
+                                    </div><!-- /.box-body -->
+                                    <div class="box-footer">
+                                        <h:commandButton value="Editar" class="btn btn-sm btn-primary" actionListener="#{managedApoderado.modificar()}" action="list.xhtml"></h:commandButton>
+                                        &nbsp;
+                                        <h:commandButton value="Regresar a la lista" class="btn btn-sm btn-danger " action="list.xhtml"></h:commandButton>
+                                    </div>
+                                </h:form>
+                            </div><!-- /.box -->
+                        </div>
+                    </div>
+                </section><!-- /.content -->
+
+            </div><!-- /.content-wrapper -->
+        </ui:define>
+    </ui:composition>
 </html>
 

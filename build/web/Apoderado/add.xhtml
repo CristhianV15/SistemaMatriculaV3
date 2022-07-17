@@ -37,16 +37,16 @@
                                             <h:inputText value="#{managedApoderado.apoderado.nombres}" class="form-control"> </h:inputText>
                                         </div>
                                         <div class="form-group">
-                                            <label>Apellidos Paternos</label><br></br>
+                                            <h:outputLabel value="Apellidos paternos" ></h:outputLabel><br></br>
                                             <h:inputText value="#{managedApoderado.apoderado.apellidoPaterno}" class="form-control"> </h:inputText>
                                         </div>
                                         <div class="form-group">
-                                            <label>Apellidos Maternos</label><br></br>
+                                            <h:outputLabel value="Apellidos maternos" ></h:outputLabel><br></br>
                                             <h:inputText value="#{managedApoderado.apoderado.apellidoMaterno}" class="form-control"> </h:inputText>
                                         </div>
                                         <div class="form-group">
                                             <div class="row">
-                                                <label class="col-sm-12">Tipo de documento</label>
+                                                <h:outputLabel value="Tipo de documento" ></h:outputLabel><br></br>
                                                 <div class="col-sm-6">
                                                     <h:selectOneMenu value="#{managedApoderado.apoderado.tipoDocumento}">
                                                         <f:selectItem itemValue="DNI" itemLabel="DNI"></f:selectItem>
@@ -56,24 +56,24 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label>N&uacute;mero de documento</label><br></br>
+                                            <h:outputLabel value="Número de documento" ></h:outputLabel><br></br>
                                             <h:inputText value="#{managedApoderado.apoderado.numeroDocumento}" class="form-control"> </h:inputText>
                                         </div>
                                         <div class="form-group">
-                                            <label>Correo electronico</label><br></br>
+                                              <h:outputLabel value="Correo electronico" ></h:outputLabel><br></br>
                                             <h:inputText value="#{managedApoderado.apoderado.email}" class="form-control"> </h:inputText>
                                         </div>
                                         <div class="form-group">
-                                            <label>N&uacute;mero de celular</label><br></br>
+                                              <h:outputLabel value="Número de celular" ></h:outputLabel><br></br>
                                             <h:inputText value="#{managedApoderado.apoderado.celular}" class="form-control"> </h:inputText>
                                         </div>
                                         <div class="form-group">
-                                            <label>Direcci&oacute;n</label><br></br>
+                                            <h:outputLabel value="Direccion" ></h:outputLabel><br></br>
                                             <h:inputText value="#{managedApoderado.apoderado.direccion}" class="form-control" ></h:inputText>
                                         </div>
                                     </div><!-- /.box-body -->
                                     <div class="box-footer">
-                                        <h:commandButton value="Aceptar_Guardar" class="btn btn-sm btn-primary" actionListener="#{managedApoderado.guardarApoderado()}"></h:commandButton>
+                                        <h:commandButton value="Guardar" class="btn btn-sm btn-primary" actionListener="#{managedApoderado.guardarApoderado()}"></h:commandButton> &nbsp;
                                         <h:commandButton value="Regresar a la lista" class="btn btn-sm btn-danger " action="list.xhtml"></h:commandButton>
                                     </div>
                                     </h:form>

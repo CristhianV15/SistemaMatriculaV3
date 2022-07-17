@@ -6,6 +6,7 @@
 package EJB;
 
 import entidad.Ciclo;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,12 @@ public class CicloFacade extends AbstractFacade<Ciclo> implements CicloFacadeLoc
     public CicloFacade() {
         super(Ciclo.class);
     }
+
+    @Override
+    public List<Ciclo> findByEstado() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
     
 }
