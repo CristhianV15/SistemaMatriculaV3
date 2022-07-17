@@ -12,7 +12,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        <h:link outcome="add.xhtml" value="Agregar Año Academico"></h:link>
+                        Año Académico - <small><h:link outcome="/Ciclo/add.xhtml" value="Agregar Año Academico"></h:link></small>
                     </h1>
                 </section>
                 <!-- Bloque principal -->    
@@ -20,18 +20,18 @@
 
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Inicio</h3>
+                            <h3 class="box-title">Año Académico</h3>
                         </div>
                         <div class="box-body">
-                            <h:form>
-                                <h:commandButton value="Agregar nuevo año academico" class="btn bg-green" action="add.xhtml"></h:commandButton>
+                            <h:form>                                
+                                <h:link outcome="add.xhtml" value="Agregar Año Academico" class="btn bg-green"></h:link>
                                 <h:dataTable value="#{managedCiclo.listarCiclo}" var="a" class="table table-bordered table-striped">
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="#{msj['formAñoAcademicoAccionesCiclo']}" class="form-control"></h:outputText>
                                         </f:facet>
                                         <h:commandButton value="Editar" class="btn bg-green"
-                                                         actionListener="#{managedCiclo.encontrarCiclo(a)}" action="edit.xhtml"></h:commandButton>
+                                                         actionListener="#{managedCiclo.encontrarCiclo(a)}" action="edit.xhtml"></h:commandButton>                                        
                                         <h:commandButton value="Eliminar" class="btn bg-danger" 
                                                          actionListener="#{managedCiclo.eliminarCiclo(a)}" ></h:commandButton>
                                     </h:column>

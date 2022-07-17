@@ -7,7 +7,7 @@ import javax.persistence.metamodel.CollectionAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.6.1.v20150605-rNA", date="2022-07-16T22:46:55")
+@Generated(value="EclipseLink-2.6.1.v20150605-rNA", date="2022-07-17T16:24:58")
 @StaticMetamodel(Ciclo.class)
 public class Ciclo_ { 
 

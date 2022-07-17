@@ -1,0 +1,30 @@
+ul.sidebar-menu li{}
+ul.sidebar-menu li a:before{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+        display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f10c";
+        width: 20px;
+}
+.link1{
+    border: 0;
+    background: none;
+    display: inline;
+    color: #fff;
+    margin-left: 20px;
+}
+.login-box-body form table{
+    width: 100%;
+}
+.login-box-body form table td{
+    padding: 5px;
+}
+.login-box-body form table tr:last-child td{
+    text-align: center;
+}

@@ -5,8 +5,10 @@
  */
 package EJB;
 
+import entidad.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -61,4 +63,11 @@ public abstract class AbstractFacade<T> {
         return ((Long) q.getSingleResult()).intValue();
     }
     
+    public List<Usuario> buscarUsuario(Usuario usu){
+        String jpql = "Select u from Usuario u where u.email = ?1 and  u.clave = ?2";
+        Query query = getEntityManager().createQuery(jpql);
+        query.setParameter(1, usu.getEmail());
+        query.setParameter(2, usu.getClave());
+        return query.getResultList();
+    }
 }

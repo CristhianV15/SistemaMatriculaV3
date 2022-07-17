@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -13,10 +14,11 @@
         <h:outputStylesheet name="backend/css/ionicons.min.css"></h:outputStylesheet>
         <h:outputStylesheet name="backend/js/AdminLTE/dist/css/AdminLTE.css"></h:outputStylesheet>
         <h:outputStylesheet name="backend/js/AdminLTE/dist/css/skins/_all-skins.min.css"></h:outputStylesheet>                
+        <h:outputStylesheet name="backend/css/main.css"></h:outputStylesheet>                
         
     </h:head>
     <h:body class="hold-transition skin-blue sidebar-mini">
-
+    
         <!-- Site wrapper -->
         <div class="wrapper">
           <header class="main-header">
@@ -45,13 +47,13 @@
                   <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">                      
                       <h:graphicImage name="backend/images/ico_user.png" class="user-image"></h:graphicImage>
-                      <span class="hidden-xs">admin</span>
+                      <span class="hidden-xs">#{managedUsuario.usuario.email}</span>
                     </a>
                     <ul class="dropdown-menu">
                       <!-- User image -->
                       <li class="user-header">                        
                         <h:graphicImage name="backend/images/ico_user.png" class="img-circle"></h:graphicImage>
-                        <p>admin<small></small>
+                        <p>#{managedUsuario.usuario.email}<small></small>
                         </p>
                       </li>
                       <!-- Menu Footer-->
@@ -60,7 +62,13 @@
                           <a href="#" class="btn bg-olive btn-flat">Perfil</a>
                         </div>
                         <div class="pull-right">
-                            <a href="./" class="btn btn-danger btn-flat">Cerrar Sesi&oacute;n</a>
+                            <!--<a href="./" class="btn btn-danger btn-flat">Cerrar Sesi&oacute;n</a>-->
+                            <f:event type="preRenderView" listener="#{managedUsuario.obtenerSesion()}"></f:event>                            
+                            <h:form>
+                                <h:commandButton value="Cerrar sesion" class="btn-primary"
+                                                 actionListener="#{managedUsuario.cerrarSesion()}">
+                                </h:commandButton>
+                            </h:form>
                         </div>
                       </li>
                     </ul>
@@ -81,52 +89,46 @@
                   <h:graphicImage name="backend/images/ico_user.png" class="img-circle"></h:graphicImage>
                 </div>
                 <div class="pull-left info">
-                  <p>admin</p>
+                  <p>#{managedUsuario.usuario.email}</p>
                   <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
               </div>
               <!-- sidebar menu: : style can be found in sidebar.less -->
               <ul class="sidebar-menu">
                   <li class="header">NAVEGACI&Oacute;N</li>
-                      <li class="treeview">
-                          <h:link outcome="/inicio/list.xhtml" value="Inicio"></h:link>                        
-                      </li>
-                      <li class="treeview">
-                        <a href="./salon">
-                          <i class="fa fa-circle-o"></i> <span>Salones</span>
-                        </a>
-                      </li>
-                      <li class="treeview">
-                        <a href="../Ciclo/list.xhtml">
-                          <i class="fa fa-circle-o"></i> <span>Año Academico</span>
-                        </a>
-                      </li>
-                      <li class="treeview">
-                        <a href="./grado">
-                          <i class="fa fa-circle-o"></i> <span>Grados</span>
-                        </a>
-                      </li>
-                      <li class="treeview">
-                        <a href="./turno">
-                          <i class="fa fa-circle-o"></i> <span>Turnos</span>
-                        </a>
-                      </li>
-                      <li class="treeview">
-                        <a href="./seccion">
-                          <i class="fa fa-circle-o"></i> <span>Secciones</span>
-                        </a>
-                      </li>
-                      <li class="treeview">
-                        <a href="./usuario">
-                          <i class="fa fa-circle-o"></i> <span>Usuarios</span>
-                        </a>
-                      </li>
-                      <li class="treeview">
-                        <a href="./">
-                          <i class="fa fa-circle-o"></i> <span>Salir</span>
-                        </a>
-                      </li>
-                    </ul>
+                  <li class="treeview">
+                      <h:link outcome="/inicio/list.xhtml" value="Inicio"></h:link>                        
+                  </li>
+                  <li class="treeview">                      
+                      <a href="./grado">Salones</a>
+                  </li>                  
+                  <li class="treeview">
+                      <h:link outcome="/Ciclo/list.xhtml" value="A&ntilde;o Academico"></h:link>                          
+                  </li>
+                  <li class="treeview">
+                      <h:link outcome="/Apoderado/list.xhtml" value="Apoderado"></h:link>                          
+                  </li>
+                  <li class="treeview">
+                      <a href="./grado">Grados</a>
+                  </li>
+                  <li class="treeview">
+                      <a href="./turno">Turnos</a>
+                  </li>
+                  <li class="treeview">
+                      <a href="./seccion">Secciones</a>
+                  </li>
+                  <li class="treeview">
+                      <a href="./usuario">Usuarios</a>
+                  </li>
+                  <li class="treeview">
+                      <!--<a href="./">Salir</a>-->
+                      <h:form>
+                        <h:commandButton value="Cerrar sesion" class="link1"
+                                         actionListener="#{managedUsuario.cerrarSesion()}">
+                        </h:commandButton>
+                    </h:form>
+                  </li>
+              </ul>
             </section>
             <!-- /.sidebar -->
           </aside>
