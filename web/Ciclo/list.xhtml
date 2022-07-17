@@ -24,11 +24,11 @@
                         </div>
                         <div class="box-body">
                             <h:form>                                
-                                <h:link outcome="add.xhtml" value="Agregar Año Academico" class="btn bg-green"></h:link>
+                                
                                 <h:dataTable value="#{managedCiclo.listarCiclo}" var="a" class="table table-bordered table-striped">
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['formAñoAcademicoAccionesCiclo']}" class="form-control"></h:outputText>
+                                            <h:outputText value="#{msj['formAñoAcademicoAccionesCiclo']}"></h:outputText>
                                         </f:facet>
                                         <h:commandButton value="Editar" class="btn bg-green"
                                                          actionListener="#{managedCiclo.encontrarCiclo(a)}" action="edit.xhtml"></h:commandButton>                                        
@@ -37,19 +37,19 @@
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Codigo" class="form-control" ></h:outputText>
+                                            <h:outputText value="Codigo" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.idCiclo}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Número de año academico" class="form-control" ></h:outputText>
+                                            <h:outputText value="Número de año academico"></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.nombreCiclo}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Estado" class="form-control" ></h:outputText>
+                                            <h:outputText value="Estado"></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.estado}"></h:outputText>
                                     </h:column>

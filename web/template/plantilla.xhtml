@@ -44,6 +44,17 @@
               </div>
               <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                    <li class="dropdown top-idioma"> Idioma: &nbsp;&nbsp;
+                        <h:form style="float:right">
+                            <h:selectOneMenu onchange="this.form.submit()" class="form-control"
+                                             valueChangeListener="#{managedUsuario.cambiarIdioma}">
+                                <f:selectItem itemValue="es"
+                                              itemLabel="#{msj['idiomaEspaniol']}" ></f:selectItem>
+                                <f:selectItem itemValue="en"
+                                              itemLabel="#{msj['idiomaIngles']}" ></f:selectItem>
+                            </h:selectOneMenu>
+                        </h:form>
+                    </li>
                   <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">                      
                       <h:graphicImage name="backend/images/ico_user.png" class="user-image"></h:graphicImage>

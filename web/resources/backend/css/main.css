@@ -28,3 +28,11 @@ ul.sidebar-menu li a:before{
 .login-box-body form table tr:last-child td{
     text-align: center;
 }
+.top-idioma{
+            margin-top: 8px;
+    margin-right: 10px;
+    color: #fff;
+    vertical-align: middle;
+    display: flex !important;
+    align-items: center;
+}

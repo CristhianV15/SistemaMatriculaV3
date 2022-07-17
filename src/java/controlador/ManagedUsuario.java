@@ -4,6 +4,7 @@ import EJB.UsuarioFacadeLocal;
 import entidad.Usuario;
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -11,8 +12,10 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIViewRoot;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 
 @ManagedBean
 @SessionScoped
@@ -74,5 +77,10 @@ public class ManagedUsuario {
     
     public void cerrarSesion(){
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+    }
+    public void cambiarIdioma(ValueChangeEvent e){
+        FacesContext fc = FacesContext.getCurrentInstance();
+        UIViewRoot ui = fc.getViewRoot();
+        ui.setLocale(new Locale(e.getNewValue().toString()));
     }
 }
