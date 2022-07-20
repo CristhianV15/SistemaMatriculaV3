@@ -5,6 +5,7 @@
  */
 package EJB;
 
+import entidad.Alumno;
 import entidad.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -64,10 +65,26 @@ public abstract class AbstractFacade<T> {
     }
     
     public List<Usuario> buscarUsuario(Usuario usu){
+        System.out.println("buscarUsuario: ");
         String jpql = "Select u from Usuario u where u.email = ?1 and  u.clave = ?2";
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter(1, usu.getEmail());
         query.setParameter(2, usu.getClave());
+        return query.getResultList();
+    }
+    public List<Object[]> listarAlumnos(){
+        String jpql = "Select a from Alumno a where a.estado <>0 order by a.apellidoPaterno, a.apellidoMaterno, a.nombres";
+        Query query = getEntityManager().createQuery(jpql);
+        return query.getResultList();
+    }
+    public List<Object[]> listarCiclos(){
+        String jpql = "Select a from Ciclo a where a.estado <>0 order by a.nombreCiclo";
+        Query query = getEntityManager().createQuery(jpql);
+        return query.getResultList();
+    }
+    public List<Object[]> listarSalones(){
+        String jpql = "Select a from Salon a where a.estado <>0";
+        Query query = getEntityManager().createQuery(jpql);
         return query.getResultList();
     }
 }

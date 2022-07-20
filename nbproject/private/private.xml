@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/src/java/controlador/ManagedUsuario.java</file>
-            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/src/java/controlador/ManagedCiclo.java</file>
-            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/web/logueo.xhtml</file>
-            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/web/WEB-INF/faces-config.xml</file>
-            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/src/java/filter/CacheControlPhaseListener.java</file>
-            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/web/index.xhtml</file>
-            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/web/template/plantilla.xhtml</file>
-            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/src/java/EJB/MatriculaFacadeLocal.java</file>
+            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/src/java/entidad/Matricula.java</file>
+            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/src/java/EJB/AbstractFacade.java</file>
+            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/src/java/controlador/ManagedMatricula.java</file>
+            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/src/java/entidad/Salon.java</file>
+            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/src/java/controlador/ManagedApoderado.java</file>
+            <file>file:/C:/Users/Guille/Documents/NetBeansProjects/MatriculaV3/web/Matricula/add.xhtml</file>
         </group>
     </open-files>
 </project-private>

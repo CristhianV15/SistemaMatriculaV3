@@ -36,3 +36,6 @@ ul.sidebar-menu li a:before{
     display: flex !important;
     align-items: center;
 }
+.select-auto{
+    width: auto;
+}

@@ -5,6 +5,7 @@
  */
 package EJB;
 
+import entidad.Alumno;
 import entidad.Matricula;
 import java.util.List;
 import javax.ejb.Local;
@@ -30,4 +31,6 @@ public interface MatriculaFacadeLocal {
 
     int count();
     
+    List<Object[]> listarAlumnos();
+    List<Object[]> listarSalones();
 }

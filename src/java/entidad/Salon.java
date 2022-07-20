@@ -207,5 +207,12 @@ public class Salon implements Serializable {
     public String toString() {
         return "entidad.Salon[ idSalon=" + idSalon + " ]";
     }
-    
+    public String getNombreSalon (){
+        String nombre = "";
+        nombre = this.getIdCiclo().getNombreCiclo();
+        nombre += " | "+this.getIdGrado().getNombreGrado();
+        nombre += " | "+this.getIdTurno().getNombreTurno();
+        nombre += " | "+this.getIdSeccion().getNombreSeccion();
+        return nombre;
+    }
 }

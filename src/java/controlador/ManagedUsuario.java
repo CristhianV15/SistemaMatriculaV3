@@ -47,10 +47,11 @@ public class ManagedUsuario {
         this.usuario = new Usuario();
     }
     
-    public String validarUsuario(){
+    public String validarUsuario(){        
         listarUsuario = usuarioFacadeLocal.buscarUsuario(usuario);
         if(!listarUsuario.isEmpty()){
             //se crea session
+            usuario.setTipo(listarUsuario.get(0).getTipo());
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user",usuario);
             verPagina = "/inicio/list.xhtml";
         }
