@@ -31,6 +31,7 @@ import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.faces.validator.ValidatorException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -49,9 +50,9 @@ public class ManagedMatricula {
     private Alumno alumno;
     private Usuario usuarioCreado;
     private Usuario usuarioModificado;
+    private Matricula current;
     
-    public List<Matricula> getListarMatricula() {
-        
+    public List<Matricula> getListarMatricula() {        
         listarMatricula = this.matriculaFacadeLocal.findAll();
         return listarMatricula;
     }
@@ -80,12 +81,12 @@ public class ManagedMatricula {
     
     @PostConstruct
     public void init(){
-        Usuario usuarioSession = (Usuario)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
+//        Usuario usuarioSession = (Usuario)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
         this.matricula = new Matricula();
         this.alumno = new Alumno();
         this.salon = new Salon();
-        this.usuarioCreado = usuarioSession;
-        this.usuarioModificado = usuarioSession;
+        this.usuarioCreado = new Usuario();
+        this.usuarioModificado = new Usuario();
         
     }
     public void guardarMatricula(){        
@@ -93,14 +94,21 @@ public class ManagedMatricula {
         this.matricula.setIdSalon(salon);
         this.matricula.setIdUsuarioCreado(usuarioCreado);
         this.matricula.setIdUsuarioModificado(usuarioModificado);
-        this.matricula.setCreado(Timestamp.valueOf(LocalDateTime.now()));
-        this.matriculaFacadeLocal.create(matricula);
+        Integer valido = matriculaFacadeLocal.validarMatricula(matricula);
+        if(valido==1){            
+//            this.matricula.setCreado(Timestamp.valueOf(LocalDateTime.now()));
+            this.matriculaFacadeLocal.create(matricula);            
+        }else{
+            FacesMessage msg = new FacesMessage("No hay vancantes en el salón");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }        
     }
     public void eliminarMatricula(Matricula a){
          this.matriculaFacadeLocal.remove(a);
     }
 
     public void encontrarMatricula(Matricula a){
+//        current = (Matricula)getItems().getRowData();
         this.alumno.setIdAlumno(a.getIdAlumno().getIdAlumno());
         this.salon.setIdSalon(a.getIdSalon().getIdSalon());         
         this.usuarioCreado.setIdUsuario(a.getIdUsuarioCreado().getIdUsuario());
@@ -124,7 +132,9 @@ public class ManagedMatricula {
 //        this.matricula.setIdUsuarioModificado(usuarioModificado);        
         this.matricula.setModificado(Timestamp.valueOf(LocalDateTime.now()));
 //        this.matricula.setModificado(Timestamp.valueOf(LocalDateTime.now()));
-        this.matriculaFacadeLocal.edit(matricula);
+        this.matriculaFacadeLocal.edit(matricula);        
+//        FacesContext.getCurrentInstance().getPartialViewContext().getRenderIds().add("form_list");        
+
     }
 
     public List<Object[]> getListarSalones() {

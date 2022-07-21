@@ -10,11 +10,6 @@
 
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1>
-                        <h:link outcome="add.xhtml" value="Agregar Turno"></h:link>
-                    </h1>
-                </section>
                 <!-- Bloque principal -->    
                 <section class="content">
 
@@ -24,32 +19,32 @@
                         </div>
                         <div class="box-body">
                             <h:form>
-                                <h:commandButton value="Agregar Turno" class="btn bg-green" action="add.xhtml"></h:commandButton>
+                                <h:commandButton value="#{msj['formTurnoAgregarTurno']}" class="btn bg-green" action="add.xhtml"></h:commandButton>
                                 <h:dataTable value="#{managedTurno.listarTurno2}" var="t" class="table table-bordered table-striped">
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="#{msj['formAñoAcademicoAccionesCiclo']}" class="form-control"></h:outputText>
                                         </f:facet>
-                                        <h:commandButton value="Editar" class="btn bg-green"
+                                        <h:commandButton value="#{msj['buttonEditar']}" class="btn bg-green"
                                                          actionListener="#{managedTurno.cargarTurno(t)}" action="edit.xhtml"></h:commandButton>
-                                        <h:commandButton value="Eliminar" class="btn bg-danger" 
+                                        <h:commandButton value="#{msj['buttonEliminar']}" class="btn bg-danger" 
                                                          actionListener="#{managedTurno.eliminarTurno(t)}" ></h:commandButton>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Codigo" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['tablaCodigo']}" class="form-control" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{t.idTurno}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Descripción del Turno" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['formTurnoDescripcionTurno']}" class="form-control" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{t.nombreTurno}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Estado" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['formTurnoEstado']}" class="form-control" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{t.getEstadoString()}"></h:outputText>
                                     </h:column>

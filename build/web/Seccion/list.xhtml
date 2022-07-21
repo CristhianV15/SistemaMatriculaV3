@@ -11,9 +11,6 @@
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
-                    <h1>
-                        <h:link outcome="add.xhtml" value="Agregar Sección"></h:link>
-                    </h1>
                 </section>
                 <!-- Bloque principal -->    
                 <section class="content">
@@ -24,32 +21,32 @@
                         </div>
                         <div class="box-body">
                             <h:form>
-                                <h:commandButton value="Agregar Sección" class="btn bg-green" action="add.xhtml"></h:commandButton>
+                                <h:commandButton value="#{msj['formSeccionAgregarSeccion']}" class="btn bg-green" action="add.xhtml"></h:commandButton>
                                 <h:dataTable value="#{managedSeccion.listarSeccion2}" var="s" class="table table-bordered table-striped">
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="#{msj['formAñoAcademicoAccionesCiclo']}" class="form-control"></h:outputText>
                                         </f:facet>
-                                        <h:commandButton value="Editar" class="btn bg-green"
+                                        <h:commandButton value="#{msj['buttonEditar']}"  class="btn bg-green"
                                                          actionListener="#{managedSeccion.cargarSeccion(s)}" action="edit.xhtml"></h:commandButton>
-                                        <h:commandButton value="Eliminar" class="btn bg-danger" 
+                                        <h:commandButton value="#{msj['buttonEliminar']}" class="btn bg-danger" 
                                                          actionListener="#{managedSeccion.eliminarSeccion(s)}" ></h:commandButton>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Codigo" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['tablaCodigo']}" class="form-control" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{s.idSeccion}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Descripción de la Sección" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['formSeccionDescripcionSeccion']}" class="form-control" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{s.nombreSeccion}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Estado" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['formSeccionEstado']}" class="form-control" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{s.getEstadoString()}"></h:outputText>
                                     </h:column>

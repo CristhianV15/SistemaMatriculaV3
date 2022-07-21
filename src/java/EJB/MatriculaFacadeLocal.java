@@ -33,5 +33,7 @@ public interface MatriculaFacadeLocal {
     
     List<Object[]> listarAlumnos();
     List<Object[]> listarSalones();
+    
+    Integer validarMatricula(Matricula matricula);
     void matriculaUpdate(Matricula matricula);
 }

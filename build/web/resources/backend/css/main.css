@@ -36,3 +36,24 @@ ul.sidebar-menu li a:before{
     display: flex !important;
     align-items: center;
 }
+#javax_faces_developmentstage_messages{
+       position: absolute;
+    left: 0;
+    z-index: 10000;
+    width: 400px;    
+    height: auto;
+    top: 0;
+    right: 0;
+    margin: 0 auto;   
+    list-style: none;    
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+#javax_faces_developmentstage_messages li{
+    color: #a94442 !important;
+}

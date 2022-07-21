@@ -25,7 +25,7 @@
                                 <h:dataTable value="#{managedAlumno.listarAlumno}" var="a" class="table table-bordered table-striped">
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['buttonAcciones']}" class="form-control"></h:outputText>
+                                            <h:outputText value="#{msj['buttonAcciones']}" ></h:outputText>
                                         </f:facet>
                                         <h:commandButton value="#{msj['buttonEditar']}" class="btn bg-green"
                                                          actionListener="#{managedAlumno.encontrarAlumno(a)}" action="edit.xhtml"></h:commandButton><br></br><br></br>
@@ -40,7 +40,7 @@
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['tablanombre']}" ></h:outputText>
+                                            <h:outputText value="#{msj['formAlumnoNombreApoderado']}" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.idApoderado.nombres}"></h:outputText>
                                     </h:column>

@@ -11,7 +11,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        <h:outputText value="#{msj['formApoderado']}"></h:outputText>
+                        <h:outputText value="#{msj['formSalones']}"></h:outputText>
                     </h1>
                 </section>
 
@@ -22,14 +22,14 @@
                             <!-- general form elements -->
                             <div class="box box-primary">
                                 <div class="box-header with-border">
-                                    <h:outputText  value="Editar Salon"></h:outputText>
+                                    <h:outputText  value="#{msj['formSalonEditarSalon']}"></h:outputText>
                                 </div><!-- /.box-header -->
                                 <!-- form start -->
                                 <h:form>
                                     <h:inputHidden value="#{managedSalon.salon.idSalon}"></h:inputHidden>
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <h:outputLabel value="Seleccione el año academico" ></h:outputLabel>
+                                            <h:outputLabel value="#{msj['formSalonSeleccionarAñoAcademico']}" ></h:outputLabel>
                                             <br></br>
                                             <h:selectOneMenu value="#{managedSalon.ciclo.idCiclo}">
                                                 <f:selectItems value="#{managedCiclo.listarCiclo}" var="b"
@@ -38,7 +38,7 @@
                                             </h:selectOneMenu>
                                         </div>
                                         <div class="form-group">
-                                            <h:outputLabel value="Seleccione el grado" ></h:outputLabel>
+                                            <h:outputLabel value="#{msj['formSalonSeleccionarGrado']}" ></h:outputLabel>
                                             <br></br>
                                             <h:selectOneMenu value="#{managedSalon.grado.idGrado}">
                                                 <f:selectItems value="#{managedGrado.listarGrado}" var="b"
@@ -47,7 +47,7 @@
                                             </h:selectOneMenu>
                                         </div> 
                                         <div class="form-group">
-                                            <h:outputLabel value="Seleccione el Turno" ></h:outputLabel>
+                                            <h:outputLabel value="#{msj['formSalonSeleccionarTurno']}" ></h:outputLabel>
                                             <br></br>
                                             <h:selectOneMenu value="#{managedSalon.turno.idTurno}">
                                                 <f:selectItems value="#{managedTurno.listarTurno}" var="b"
@@ -56,7 +56,7 @@
                                             </h:selectOneMenu>
                                         </div> 
                                         <div class="form-group">
-                                            <h:outputLabel value="Seleccione la seccion" ></h:outputLabel>
+                                            <h:outputLabel value="#{msj['formSalonSeleccionarSeccion']}" ></h:outputLabel>
                                             <br></br>
                                             <h:selectOneMenu value="#{managedSalon.seccion.idSeccion}">
                                                 <f:selectItems value="#{managedSeccion.listarSeccion}" var="b"
@@ -77,7 +77,7 @@
                                                            itemValue="#{b.idUsuario}"></f:selectItems>
                                         </h:selectOneMenu>
                                         <div class="form-group">
-                                            <h:outputLabel value="Vacantes" ></h:outputLabel>
+                                            <h:outputLabel value="#{msj['formSalonSeleccionarNumeroVacantes']}" ></h:outputLabel>
                                             <br></br>
                                             <h:inputText value="#{managedSalon.salon.vacantes}"> </h:inputText>
                                         </div> 

@@ -11,7 +11,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        <h:outputText value="Datos del Grado"></h:outputText>
+                        <h:outputText value="#{msj['formGradoDatosGrado']}"></h:outputText>
                     </h1>
                 </section>
 
@@ -23,23 +23,26 @@
                             <div class="box box-primary">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">
-                                        <h:outputText  value="Agregar Grado"></h:outputText>
+                                        <h:outputText  value="#{msj['formGradoAgregarGrado']}"></h:outputText>
                                     </h3>
                                 </div><!-- /.box-header -->
                                 <!-- form start -->
                                 <h:form>
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <h:outputLabel value="Nombre del grado" ></h:outputLabel>
+                                            <h:outputLabel value="#{msj['formGradoNombreGrado']}" ></h:outputLabel>
                                             <br></br>
                                             <h:inputText value="#{managedGrado.grado.nombreGrado}"> </h:inputText>
                                         </div>
                                         <div class="form-group">
-                                            <h:outputLabel value="Nivel" ></h:outputLabel><br></br>
-                                            <h:inputText value="#{managedGrado.grado.nivel}" class="form-control"> </h:inputText>
+                                            <h:outputLabel value="#{msj['formGradoNivel']}" ></h:outputLabel><br></br>
+                                             <h:selectOneMenu value="#{managedGrado.grado.nivel}">
+                                                <f:selectItem itemValue="P" itemLabel="Primaria"></f:selectItem>
+                                                <f:selectItem itemValue="S" itemLabel="Secundaria"></f:selectItem>
+                                            </h:selectOneMenu>
                                         </div>
                                         <div class="form-group">
-                                            <h:outputLabel value="Rotulo" ></h:outputLabel><br></br>
+                                            <h:outputLabel value="#{msj['formGradoRotulo']}" ></h:outputLabel><br></br>
                                             <h:inputText value="#{managedGrado.grado.rotulo}" class="form-control"> </h:inputText>
                                         </div>
                                     </div><!-- /.box-body -->

@@ -8,6 +8,7 @@ package EJB;
 import entidad.Ciclo;
 import entidad.Grado;
 import entidad.Matricula;
+import entidad.Salon;
 import entidad.Seccion;
 import entidad.Turno;
 import entidad.Usuario;
@@ -124,5 +125,39 @@ public abstract class AbstractFacade<T> {
         query.setParameter(1, m.getIdAlumno().getIdAlumno());
         query.setParameter(2, m.getIdMatricula());
         query.executeUpdate();
+    }
+    
+        public Integer validarMatricula(Matricula m){ 
+        System.out.print("validarMatricula: " );
+        Integer resultado = 0;
+        try {
+//            String jpql = "select if( (SELECT count(0) from matricula WHERE idSalon=?1) < (SELECT vacantes from salon WHERE idSalon=?2), 1,0) disponible";
+            String jpql = "Select a from Matricula a WHERE a.idSalon = ?1";
+            
+            Query query = getEntityManager().createQuery(jpql);
+            query.setParameter(1, m.getIdSalon());
+            System.out.print("matriculados: " + jpql);
+                        
+            List<Matricula> listMatricula = query.getResultList();
+            Integer matriculados = listMatricula.size();
+            System.out.print("matriculados: " + matriculados);
+            
+            String jpql2 = "Select a from Salon a WHERE a.idSalon = ?1";
+            Query query2 = getEntityManager().createQuery(jpql2);
+            query2.setParameter(1, m.getIdSalon().getIdSalon());            
+            Salon salon = (Salon) query2.getResultList().get(0);
+            Integer vacantes = salon.getVacantes();
+            System.out.print("vacantes: " + vacantes);
+            if (vacantes > matriculados) {
+                resultado = 1;
+//                String jpql3 = "update salon set vacantes = vacantes - 1 where idSalon=?1";
+//                Query query3 = getEntityManager().createNativeQuery(jpql3);
+//                query3.setParameter(1, m.getIdSalon().getIdSalon());
+//                query3.executeUpdate();
+            }
+        } catch (Exception e) {
+            System.out.print(e.getMessage());
+        }
+        return resultado;
     }
 }
