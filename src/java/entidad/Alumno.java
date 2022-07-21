@@ -248,5 +248,11 @@ public class Alumno implements Serializable {
     public String toString() {
         return "entidad.Alumno[ idAlumno=" + idAlumno + " ]";
     }
-    
+    public String getNombreCompleto (){
+        String nombre = "";
+        nombre = this.apellidoPaterno;
+        nombre += " "+this.apellidoMaterno;
+        nombre += " "+this.nombres;        
+        return nombre;
+    }
 }

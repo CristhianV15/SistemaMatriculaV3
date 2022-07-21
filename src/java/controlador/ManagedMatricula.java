@@ -1,13 +1,19 @@
 package controlador;
 
 import EJB.MatriculaFacadeLocal;
+
 import entidad.Alumno;
 import entidad.Matricula;
 import entidad.Salon;
+import entidad.Usuario;
 import java.io.IOException;
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -15,14 +21,23 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
 import javax.faces.event.ValueChangeEvent;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
+import javax.faces.model.SelectItem;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @ManagedBean
 @SessionScoped
 public class ManagedMatricula {
+    
     @EJB
     MatriculaFacadeLocal matriculaFacadeLocal;
     private List<Matricula> listarMatricula;
@@ -32,8 +47,12 @@ public class ManagedMatricula {
     private List<Object[]> listarSalones;
     private Salon salon;
     private Alumno alumno;
-
+    private Usuario usuarioCreado;
+    private Usuario usuarioModificado;
+    
     public List<Matricula> getListarMatricula() {
+        
+        listarMatricula = this.matriculaFacadeLocal.findAll();
         return listarMatricula;
     }
 
@@ -61,46 +80,48 @@ public class ManagedMatricula {
     
     @PostConstruct
     public void init(){
+        Usuario usuarioSession = (Usuario)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
         this.matricula = new Matricula();
-        this.salon = new Salon();
         this.alumno = new Alumno();
+        this.salon = new Salon();
+        this.usuarioCreado = usuarioSession;
+        this.usuarioModificado = usuarioSession;
+        
     }
-    public void guardarMatricula(){
-//        matricula.setIdSalon(salon);
-//        matricula.setIdAlumno(alumno);
+    public void guardarMatricula(){        
+        this.matricula.setIdAlumno(alumno);
+        this.matricula.setIdSalon(salon);
+        this.matricula.setIdUsuarioCreado(usuarioCreado);
+        this.matricula.setIdUsuarioModificado(usuarioModificado);
+        this.matricula.setCreado(Timestamp.valueOf(LocalDateTime.now()));
         this.matriculaFacadeLocal.create(matricula);
     }
     public void eliminarMatricula(Matricula a){
          this.matriculaFacadeLocal.remove(a);
     }
-  
+
     public void encontrarMatricula(Matricula a){
+        this.alumno.setIdAlumno(a.getIdAlumno().getIdAlumno());
+        this.salon.setIdSalon(a.getIdSalon().getIdSalon());         
+//        this.alumno = a.getIdAlumno();
+//        this.salon = a.getIdSalon();
+//        this.matricula.setIdAlumno(alumno);
+//        this.matricula.setIdSalon(salon);
+//        this.matricula.setIdUsuarioCreado(a.getIdUsuarioCreado());
         this.matricula=a;
+        
     }
     
     public void modificar(){
+//        System.out.println("modificar alumno id: "+ alumno.getIdAlumno());
+//        System.out.println("modificar alumno id: "+ matricula.getIdAlumno().getIdAlumno());
+        this.matricula.setIdAlumno(alumno);
+        this.matricula.setIdSalon(salon);        
+//        this.matricula.setIdUsuarioModificado(usuarioModificado);        
+        this.matricula.setModificado(Timestamp.valueOf(LocalDateTime.now()));
+//        this.matricula.setModificado(Timestamp.valueOf(LocalDateTime.now()));
         this.matriculaFacadeLocal.edit(matricula);
     }
-    
-    public String validarMatricula(){
-//        listarMatricula = matriculaFacadeLocal.buscarMatricula(matricula);
-//        if(!listarMatricula.isEmpty()){
-//            //se crea session
-//            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user",matricula);
-//            verPagina = "/inicio/list.xhtml";
-//        }
-//        else{
-//            FacesMessage mensaje = new FacesMessage("Matricula o contraseña invalido");
-//            FacesContext.getCurrentInstance().addMessage(null, mensaje);
-//        }
-        return verPagina;
-    }
-//    public List<Alumno> listarAlumnos(){
-//        
-//        listarAlumnos = matriculaFacadeLocal.listarAlumnos();
-//        System.out.println("listarAlumnos size: " + listarAlumnos.size()); 
-//        return listarAlumnos;
-//    }
 
     public List<Object[]> getListarSalones() {
         listarSalones = matriculaFacadeLocal.listarSalones();
@@ -109,6 +130,38 @@ public class ManagedMatricula {
 
     public void setListarSalones(List<Object[]> listarSalones) {
         this.listarSalones = listarSalones;
+    }
+
+    public Salon getSalon() {
+        return salon;
+    }
+
+    public void setSalon(Salon salon) {
+        this.salon = salon;
+    }
+
+    public Alumno getAlumno() {
+        return alumno;
+    }
+
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
+    }
+
+    public Usuario getUsuarioCreado() {
+        return usuarioCreado;
+    }
+
+    public void setUsuarioCreado(Usuario usuarioCreado) {
+        this.usuarioCreado = usuarioCreado;
+    }
+
+    public Usuario getUsuarioModificado() {
+        return usuarioModificado;
+    }
+
+    public void setUsuarioModificado(Usuario usuarioModificado) {
+        this.usuarioModificado = usuarioModificado;
     }
 
 }

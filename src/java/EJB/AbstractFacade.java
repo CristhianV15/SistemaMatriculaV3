@@ -6,6 +6,7 @@
 package EJB;
 
 import entidad.Alumno;
+import entidad.Matricula;
 import entidad.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -87,4 +88,12 @@ public abstract class AbstractFacade<T> {
         Query query = getEntityManager().createQuery(jpql);
         return query.getResultList();
     }
+    public void matriculaUpdate(Matricula m){
+        String jpql = "update matricula set idAlumno=?1 where idMatricula=?2";
+        Query query = getEntityManager().createNativeQuery(jpql);
+        query.setParameter(1, m.getIdAlumno().getIdAlumno());
+        query.setParameter(2, m.getIdMatricula());
+        query.executeUpdate();
+    }
+   
 }

@@ -29,9 +29,9 @@
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="#{msj['formMatriculaAcciones']}"></h:outputText>
-                                        </f:facet>
+                                        </f:facet>                                        
                                         <h:commandButton value="Editar" class="btn bg-green"
-                                                         actionListener="#{managedMatricula.encontrarMatricula(a)}" action="edit.xhtml"></h:commandButton>
+                                                         actionListener="#{managedMatricula.encontrarMatricula(a)}" action="edit.xhtml"></h:commandButton>                                        
                                         <h:commandButton value="Eliminar" class="btn bg-danger" 
                                                          actionListener="#{managedMatricula.eliminarMatricula(a)}" ></h:commandButton>
                                     </h:column>
@@ -45,13 +45,25 @@
                                         <f:facet name="header">
                                             <h:outputText value="#{msj['formMatriculaAlumno']}"></h:outputText>
                                         </f:facet>                       
-                                        <h:outputText value="#{a.nombreMatricula}"></h:outputText>
+                                        <h:outputText value="#{a.idAlumno.getNombreCompleto()}"></h:outputText>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{msj['formMatriculaSalon']}"></h:outputText>
+                                        </f:facet>                       
+                                        <h:outputText value="#{a.idSalon.getNombreSalon()}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="#{msj['formMatriculaEstado']}"></h:outputText>
                                         </f:facet>                       
-                                        <h:outputText value="#{a.estado}"></h:outputText>
+                                        <h:outputText value="#{a.getEstadoString()}"></h:outputText>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{msj['formMatriculaCreado']}"></h:outputText>
+                                        </f:facet>                       
+                                        <h:outputText value="#{a.getCreadoString()}"></h:outputText>
                                     </h:column>
                                 </h:dataTable>
                             </h:form>

@@ -6,7 +6,9 @@
 package entidad;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +24,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import modelo.util.DbEstado;
 
 /**
  *
@@ -31,7 +34,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "matricula")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Matricula.findAll", query = "SELECT m FROM Matricula m")
+    @NamedQuery(name = "Matricula.findAll", 
+            query = "SELECT m FROM Matricula m "
+                    + "INNER JOIN m.idAlumno m2 "
+                    + "INNER JOIN m.idSalon m3 "
+                    + "INNER JOIN m.idUsuarioCreado m4 "
+                    + "WHERE m.estado <> 0 order by m.creado desc")
     , @NamedQuery(name = "Matricula.findByIdMatricula", query = "SELECT m FROM Matricula m WHERE m.idMatricula = :idMatricula")
     , @NamedQuery(name = "Matricula.findByEstado", query = "SELECT m FROM Matricula m WHERE m.estado = :estado")
     , @NamedQuery(name = "Matricula.findByCodigoPago", query = "SELECT m FROM Matricula m WHERE m.codigoPago = :codigoPago")
@@ -74,7 +82,7 @@ public class Matricula implements Serializable {
     private Usuario idUsuarioCreado;
     @JoinColumn(name = "idUsuarioModificado", referencedColumnName = "idUsuario")
     @ManyToOne
-    private Usuario idUsuarioModificado;
+    private Usuario idUsuarioModificado;    
 
     public Matricula() {
     }
@@ -195,5 +203,22 @@ public class Matricula implements Serializable {
     public String toString() {
         return "entidad.Matricula[ idMatricula=" + idMatricula + " ]";
     }
-    
+    public String getEstadoString() {
+        String est = "";
+        List<DbEstado> estados = (new DbEstado()).getEstadosMatricula();
+        for (int i = 0; i < estados.size(); i++) {
+            if ( estados.get(i).getId() == this.estado ) {
+                est = estados.get(i).getNombre();
+                break;
+            }
+        }
+        return est;
+    }
+    public String getCreadoString(){
+        String creadoText = "";
+        if(this.creado != null){
+            creadoText = new SimpleDateFormat("dd/MM/yyyy KK:mm a").format(this.creado);
+        }
+        return creadoText;
+    }
 }
