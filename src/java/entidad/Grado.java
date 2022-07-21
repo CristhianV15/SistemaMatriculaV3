@@ -65,6 +65,8 @@ public class Grado implements Serializable {
     private Collection<Salon> salonCollection;
 
     public Grado() {
+        estado=1;
+        creado= new Date();
     }
 
     public Grado(Integer idGrado) {

@@ -43,26 +43,22 @@
                                             <h:inputText value="#{managedApoderado.apoderado.apellidoMaterno}" class="form-control"> </h:inputText>
                                         </div>
                                         <div class="form-group">
-                                            <div class="row">
-                                                <h:outputLabel value="#{msj['formApoderadoTipoDocumento']}" ></h:outputLabel><br></br>
-                                                
-                                                    <h:selectOneMenu value="#{managedApoderado.apoderado.tipoDocumento}">
-                                                        <f:selectItem itemValue="DNI" itemLabel="DNI"></f:selectItem>
-                                                        <f:selectItem itemValue="Pasaporte" itemLabel="#{msj['formApoderadoPasaporte']}"></f:selectItem>
-                                                    </h:selectOneMenu>
-                                                
-                                            </div>
+                                            <h:outputLabel value="#{msj['formApoderadoTipoDocumento']}" ></h:outputLabel><br></br>
+                                            <h:selectOneMenu value="#{managedApoderado.apoderado.tipoDocumento}">
+                                                <f:selectItem itemValue="DNI" itemLabel="DNI"></f:selectItem>
+                                                <f:selectItem itemValue="Pasaporte" itemLabel="#{msj['formApoderadoPasaporte']}"></f:selectItem>
+                                            </h:selectOneMenu>
                                         </div>
                                         <div class="form-group">
                                             <h:outputLabel value="#{msj['formApoderadoNumeroDocumento']}" ></h:outputLabel><br></br>
                                             <h:inputText value="#{managedApoderado.apoderado.numeroDocumento}" class="form-control"> </h:inputText>
                                         </div>
                                         <div class="form-group">
-                                              <h:outputLabel value="Email" ></h:outputLabel><br></br>
+                                            <h:outputLabel value="Email" ></h:outputLabel><br></br>
                                             <h:inputText value="#{managedApoderado.apoderado.email}" class="form-control"> </h:inputText>
                                         </div>
                                         <div class="form-group">
-                                              <h:outputLabel  value="#{msj['formApoderadoCelular']}" ></h:outputLabel><br></br>
+                                            <h:outputLabel  value="#{msj['formApoderadoCelular']}" ></h:outputLabel><br></br>
                                             <h:inputText value="#{managedApoderado.apoderado.celular}" class="form-control"> </h:inputText>
                                         </div>
                                         <div class="form-group">
@@ -74,7 +70,7 @@
                                         <h:commandButton value="#{msj['buttonGuardar']}" class="btn btn-sm btn-primary" actionListener="#{managedApoderado.guardarApoderado()}"></h:commandButton> &nbsp;
                                         <h:commandButton value="#{msj['buttonRegresar']}" class="btn btn-sm btn-danger " action="list.xhtml"></h:commandButton>
                                     </div>
-                                    </h:form>
+                                </h:form>
                             </div><!-- /.box -->
                         </div>
                     </div>

@@ -32,13 +32,13 @@
                                             <h:outputText value="#{msj['buttonAcciones']}"></h:outputText>
                                         </f:facet>
                                         <h:commandButton value="#{msj['buttonEditar']}" class="btn bg-green"
-                                                         actionListener="#{managedCiclo.encontrarCiclo(a)}" action="edit.xhtml"></h:commandButton>                                        
+                                                         actionListener="#{managedCiclo.encontrarCiclo(a)}" action="edit.xhtml"></h:commandButton>  &nbsp;&nbsp;                                      
                                         <h:commandButton value="#{msj['buttonEliminar']}" class="btn bg-danger" 
                                                          actionListener="#{managedCiclo.eliminarCiclo(a)}" ></h:commandButton>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['formAñoAcademicoCodigoTabla']}" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['formAñoAcademicoCodigoTabla']}" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.idCiclo}"></h:outputText>
                                     </h:column>
@@ -50,9 +50,9 @@
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['formAñoAcademicoEstado']}" class="form-control"></h:outputText>
+                                            <h:outputText value="#{msj['formAñoAcademicoEstado']}"></h:outputText>
                                         </f:facet>                       
-                                        <h:outputText value="#{a.estado}"></h:outputText>
+                                        <h:outputText value="#{a.getEstadoString()}"></h:outputText>
                                     </h:column>
                                 </h:dataTable>
                             </h:form>

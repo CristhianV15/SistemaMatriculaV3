@@ -5,7 +5,9 @@
  */
 package EJB;
 
+import entidad.Grado;
 import entidad.Turno;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +30,7 @@ public class TurnoFacade extends AbstractFacade<Turno> implements TurnoFacadeLoc
     public TurnoFacade() {
         super(Turno.class);
     }
-    
+     public List<Grado> findByEstado() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

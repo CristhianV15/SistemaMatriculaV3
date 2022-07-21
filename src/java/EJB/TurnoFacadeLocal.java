@@ -27,7 +27,7 @@ public interface TurnoFacadeLocal {
     List<Turno> findAll();
 
     List<Turno> findRange(int[] range);
-
+    List<Turno> buscarTurno(Turno tu);
     int count();
-    
+     
 }

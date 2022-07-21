@@ -34,6 +34,7 @@ public class CicloFacade extends AbstractFacade<Ciclo> implements CicloFacadeLoc
     public List<Ciclo> findByEstado() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+  
 
    
     

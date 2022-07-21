@@ -80,6 +80,8 @@ public class Salon implements Serializable {
     private Usuario idUsuarioModificado;
 
     public Salon() {
+        estado=1;
+        creado= new Date();
     }
 
     public Salon(Integer idSalon) {

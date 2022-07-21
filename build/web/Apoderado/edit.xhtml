@@ -42,15 +42,11 @@
                                             <h:inputText value="#{managedApoderado.apoderado.apellidoMaterno}" class="form-control"> </h:inputText>
                                         </div>
                                         <div class="form-group">
-                                            <div class="row">
                                                 <h:outputLabel value="#{msj['formApoderadoTipoDocumento']}" ></h:outputLabel><br></br>
-                                                <div class="col-sm-6">
                                                     <h:selectOneMenu value="#{managedApoderado.apoderado.tipoDocumento}">
                                                         <f:selectItem itemValue="DNI" itemLabel="DNI"></f:selectItem>
                                                         <f:selectItem itemValue="Pasaporte" itemLabel="#{msj['formApoderadoPasaporte']}"></f:selectItem>
                                                     </h:selectOneMenu>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <h:outputLabel value="#{msj['formApoderadoNumeroDocumento']}" ></h:outputLabel><br></br>

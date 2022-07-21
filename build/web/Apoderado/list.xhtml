@@ -27,61 +27,61 @@
                                             <h:outputText value="#{msj['buttonAcciones']}" class="form-control"></h:outputText>
                                         </f:facet>
                                         <h:commandButton value="#{msj['buttonEditar']}" class="btn bg-green"
-                                                         actionListener="#{managedApoderado.encontrarApoderado(a)}" action="edit.xhtml"></h:commandButton>
+                                                         actionListener="#{managedApoderado.encontrarApoderado(a)}" action="edit.xhtml"></h:commandButton><br></br><br></br>
                                         <h:commandButton value="#{msj['buttonEliminar']}" class="btn bg-danger" 
                                                          actionListener="#{managedApoderado.eliminarApoderado(a)}" ></h:commandButton>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['tablaCodigo']}" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['tablaCodigo']}" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.idApoderado}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['tablanombre']}" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['tablanombre']}"></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.nombres}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['formApoderadoApellidoPaterno']}" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['formApoderadoApellidoPaterno']}" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.apellidoPaterno}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['formApoderadoApellidoMaterno']}" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['formApoderadoApellidoMaterno']}" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.apellidoMaterno}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['formApoderadoTipoDocumento']}" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['formApoderadoTipoDocumento']}"></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.tipoDocumento}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['formApoderadoNumeroDocumento']}" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['formApoderadoNumeroDocumento']}"></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.numeroDocumento}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Email" class="form-control" ></h:outputText>
+                                            <h:outputText value="Email" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.email}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['formApoderadoCelular']}" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['formApoderadoCelular']}" ></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.celular}"></h:outputText>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="#{msj['formApoderadoDireccion']}" class="form-control" ></h:outputText>
+                                            <h:outputText value="#{msj['formApoderadoDireccion']}"></h:outputText>
                                         </f:facet>                       
                                         <h:outputText value="#{a.direccion}"></h:outputText>
                                     </h:column>

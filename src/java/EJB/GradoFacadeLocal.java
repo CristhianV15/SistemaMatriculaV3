@@ -27,7 +27,7 @@ public interface GradoFacadeLocal {
     List<Grado> findAll();
 
     List<Grado> findRange(int[] range);
-
+    List<Grado> buscarGrado(Grado gr);    
     int count();
     
 }

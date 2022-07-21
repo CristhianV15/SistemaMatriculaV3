@@ -51,6 +51,7 @@ public class ManagedUsuario {
         listarUsuario = usuarioFacadeLocal.buscarUsuario(usuario);
         if(!listarUsuario.isEmpty()){
             //se crea session
+            usuario.setTipo(listarUsuario.get(0).getTipo());
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user",usuario);
             verPagina = "/inicio/list.xhtml";
         }
@@ -83,4 +84,5 @@ public class ManagedUsuario {
         UIViewRoot ui = fc.getViewRoot();
         ui.setLocale(new Locale(e.getNewValue().toString()));
     }
+    
 }

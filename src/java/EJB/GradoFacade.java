@@ -6,6 +6,7 @@
 package EJB;
 
 import entidad.Grado;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,9 @@ public class GradoFacade extends AbstractFacade<Grado> implements GradoFacadeLoc
     public GradoFacade() {
         super(Grado.class);
     }
-    
+
+    public List<Grado> findByEstado() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+  
 }

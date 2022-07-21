@@ -4902,4 +4902,9 @@ table.text-center th {
   .table-responsive > .table tr td {
     white-space: normal !important;
   }
+  .contrasena{
+    INPUT[type="password"]{
+    font-size:19px;
+  }
+  }
 }

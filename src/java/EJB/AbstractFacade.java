@@ -5,6 +5,10 @@
  */
 package EJB;
 
+import entidad.Ciclo;
+import entidad.Grado;
+import entidad.Seccion;
+import entidad.Turno;
 import entidad.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -13,6 +17,7 @@ import javax.persistence.Query;
 /**
  *
  * @author Guille
+ * @param <T>
  */
 public abstract class AbstractFacade<T> {
 
@@ -68,6 +73,31 @@ public abstract class AbstractFacade<T> {
         Query query = getEntityManager().createQuery(jpql);
         query.setParameter(1, usu.getEmail());
         query.setParameter(2, usu.getClave());
+        return query.getResultList();
+    }
+    
+    //Busqueda ciclo (Solo estado 1)
+    public List<Ciclo> buscarCiclo(Ciclo ci){
+         String jpql= "SELECT c FROM Ciclo c WHERE c.estado = 1";
+         Query query = getEntityManager().createQuery(jpql);
+        return query.getResultList();
+    }
+    
+    public List<Grado> buscarGrado(Grado gr){
+         String jpql= "SELECT g FROM Grado g WHERE g.estado = 1";
+         Query query = getEntityManager().createQuery(jpql);
+        return query.getResultList();
+    }
+    
+    public List<Turno> buscarTurno(Turno tu){
+         String jpql= "SELECT t FROM Turno t WHERE t.estado = 1";
+         Query query = getEntityManager().createQuery(jpql);
+        return query.getResultList();
+    }
+    
+    public List<Seccion> buscarSeccion(Seccion se){
+         String jpql= "SELECT s FROM Seccion s WHERE s.estado = 1";
+         Query query = getEntityManager().createQuery(jpql);
         return query.getResultList();
     }
 }

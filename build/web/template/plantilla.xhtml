@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -15,156 +16,178 @@
         <h:outputStylesheet name="backend/js/AdminLTE/dist/css/AdminLTE.css"></h:outputStylesheet>
         <h:outputStylesheet name="backend/js/AdminLTE/dist/css/skins/_all-skins.min.css"></h:outputStylesheet>                
         <h:outputStylesheet name="backend/css/main.css"></h:outputStylesheet>                
-        
+
     </h:head>
     <h:body class="hold-transition skin-blue sidebar-mini">
-    
+
         <!-- Site wrapper -->
         <div class="wrapper">
-          <header class="main-header">
-            <!-- Logo -->
-            <a href="/admin" class="logo">
-              <!-- mini logo for sidebar mini 50x50 pixels -->
-              <span class="logo-mini"><b>S</b>M</span>
-              <!-- logo for regular state and mobile devices -->
-              <span class="logo-lg"><b>Sistema</b> de Matr&iacute;cula</span>
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-              <!-- Sidebar toggle button-->
-              <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </a>
-              <div class="navbar-custom-menu pull-left">
-                <ul class="nav navbar-nav">
-                </ul>
-              </div>
-              <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown top-idioma"> Idioma: &nbsp;&nbsp;
-                        <h:form style="float:right">
-                            <h:selectOneMenu onchange="this.form.submit()" class="form-control"
-                                             valueChangeListener="#{managedUsuario.cambiarIdioma}">
-                                <f:selectItem itemValue="es"
-                                              itemLabel="#{msj['idiomaEspaniol']}" ></f:selectItem>
-                                <f:selectItem itemValue="en"
-                                              itemLabel="#{msj['idiomaIngles']}" ></f:selectItem>
-                            </h:selectOneMenu>
-                        </h:form>
-                    </li>
-                  <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">                      
-                      <h:graphicImage name="backend/images/ico_user.png" class="user-image"></h:graphicImage>
-                      <span class="hidden-xs">#{managedUsuario.usuario.email}</span>
+            <header class="main-header">
+                <!-- Logo -->
+                <a href="/admin" class="logo">
+                    <!-- mini logo for sidebar mini 50x50 pixels -->
+                    <span class="logo-mini"><b>S</b>M</span>
+                    <!-- logo for regular state and mobile devices -->
+                    <span class="logo-lg"><b>Sistema</b> de Matr&iacute;cula</span>
+                </a>
+                <!-- Header Navbar: style can be found in header.less -->
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </a>
-                    <ul class="dropdown-menu">
-                      <!-- User image -->
-                      <li class="user-header">                        
-                        <h:graphicImage name="backend/images/ico_user.png" class="img-circle"></h:graphicImage>
-                        <p>#{managedUsuario.usuario.email}<small></small>
-                        </p>
-                      </li>
-                      <!-- Menu Footer-->
-                      <li class="user-footer">
-                        <div class="pull-left">
-                          <a href="#" class="btn bg-olive btn-flat">Perfil</a>
+                    <div class="navbar-custom-menu pull-left">
+                        <ul class="nav navbar-nav">
+                        </ul>
+                    </div>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown top-idioma"> Idioma: &nbsp;&nbsp;
+                                <h:form style="float:right">
+                                    <h:selectOneMenu onchange="this.form.submit()" class="form-control"
+                                                     valueChangeListener="#{managedUsuario.cambiarIdioma}">
+                                        <f:selectItem itemValue="es"
+                                                      itemLabel="#{msj['idiomaEspaniol']}" ></f:selectItem>
+                                        <f:selectItem itemValue="en"
+                                                      itemLabel="#{msj['idiomaIngles']}" ></f:selectItem>
+                                    </h:selectOneMenu>
+                                </h:form>
+                            </li>
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">                      
+                                    <h:graphicImage name="backend/images/ico_user.png" class="user-image"></h:graphicImage>
+                                    <span class="hidden-xs">#{managedUsuario.usuario.email}</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header">                        
+                                        <h:graphicImage name="backend/images/ico_user.png" class="img-circle"></h:graphicImage>
+                                        <p>#{managedUsuario.usuario.email}<small></small>
+                                        </p>
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href="#" class="btn bg-olive btn-flat">Perfil</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <!--<a href="./" class="btn btn-danger btn-flat">Cerrar Sesi&oacute;n</a>-->
+                                            <f:event type="preRenderView" listener="#{managedUsuario.obtenerSesion()}"></f:event>                            
+                                            <h:form>
+                                                <h:commandButton value="Cerrar sesion" class="btn-primary"
+                                                                 actionListener="#{managedUsuario.cerrarSesion()}">
+                                                </h:commandButton>
+                                            </h:form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <!-- =============================================== -->
+            <!-- Left side column. contains the sidebar -->
+            <!-- Left side column. contains the sidebar -->
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">                  
+                            <h:graphicImage name="backend/images/ico_user.png" class="img-circle"></h:graphicImage>
                         </div>
-                        <div class="pull-right">
-                            <!--<a href="./" class="btn btn-danger btn-flat">Cerrar Sesi&oacute;n</a>-->
-                            <f:event type="preRenderView" listener="#{managedUsuario.obtenerSesion()}"></f:event>                            
+                        <div class="pull-left info">
+                            <p>#{managedUsuario.usuario.email}</p>
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="header">NAVEGACI&Oacute;N</li>                  
+                        <c:set var="tipo" value="#{managedUsuario.usuario.tipo}"></c:set>
+                        <c:if test="${ tipo == 'admision'}">
+                            <li class="treeview">
+                                <h:link outcome="/inicio/list.xhtml" value="Inicio"></h:link>                        
+                            </li>
+                            <li class="treeview">
+                                <h:link outcome="/Matricula/list.xhtml" value="Matrícula"></h:link>                        
+                            </li>
+                            <li class="treeview">
+                                <h:link outcome="/Apoderado/list.xhtml" value="#{msj['formApoderado']}"></h:link>                          
+                            </li>      
+                            <li class="treeview">
+                                <h:link outcome="/Alumno/list.xhtml" value="#{msj['formAlumno']}"></h:link>                          
+                            </li>
+                        </c:if>
+
+                        <c:if test="${ tipo == 'administrador'}">
+                            <li class="treeview">
+                                <h:link outcome="/inicio/list.xhtml" value="Inicio"></h:link>                        
+                            </li>
+                            <li class="treeview">
+                                <h:link outcome="/Matricula/list.xhtml" value="Matrícula"></h:link>                        
+                            </li>
+                            <li class="treeview">                      
+                                <h:link outcome="/Salon/list.xhtml" value="#{msj['formSalones']}"></h:link>  
+                            </li>                  
+                            <li class="treeview">
+                                <h:link outcome="/Ciclo/list.xhtml" value="#{msj['formAñoAcademico']}"></h:link>                          
+                            </li>
+                            <li class="treeview">
+                                <h:link outcome="/Apoderado/list.xhtml" value="#{msj['formApoderado']}"></h:link>                          
+                            </li>
+                            <li class="treeview">
+                                <h:link outcome="/Alumno/list.xhtml" value="#{msj['formAlumno']}"></h:link>                          
+                            </li>
+                            <li class="treeview">
+                                <h:link outcome="/Grado/list.xhtml" value="#{msj['formGrado']}"></h:link>   
+                            </li>
+                            <li class="treeview">
+                                <h:link outcome="/Turno/list.xhtml" value="#{msj['formTurno']}"></h:link>   
+                            </li>
+                            <li class="treeview">
+                                <h:link outcome="/Seccion/list.xhtml" value="#{msj['formSecciones']}"></h:link> 
+                            </li>
+                            <li class="treeview">
+                                <h:link outcome="/Usuario/list.xhtml" value="#{msj['formUsuarios']}"></h:link>    
+                            </li>
+                        </c:if>
+                        <li class="treeview">                      
                             <h:form>
-                                <h:commandButton value="Cerrar sesion" class="btn-primary"
+                                <h:commandButton value="Cerrar sesion" class="link1"
                                                  actionListener="#{managedUsuario.cerrarSesion()}">
                                 </h:commandButton>
                             </h:form>
-                        </div>
-                      </li>
+                        </li>
                     </ul>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </header>
-          <!-- =============================================== -->
-          <!-- Left side column. contains the sidebar -->
-          <!-- Left side column. contains the sidebar -->
-          <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-              <!-- Sidebar user panel -->
-              <div class="user-panel">
-                <div class="pull-left image">                  
-                  <h:graphicImage name="backend/images/ico_user.png" class="img-circle"></h:graphicImage>
-                </div>
-                <div class="pull-left info">
-                  <p>#{managedUsuario.usuario.email}</p>
-                  <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
-              </div>
-              <!-- sidebar menu: : style can be found in sidebar.less -->
-              <ul class="sidebar-menu">
-                  <li class="header">NAVEGACI&Oacute;N</li>
-                  <li class="treeview">
-                      <h:link outcome="/inicio/list.xhtml" value="Inicio"></h:link>                        
-                  </li>
-                  <li class="treeview">                      
-                      <a href="./grado">Salones</a>
-                  </li>                  
-                  <li class="treeview">
-                      <h:link outcome="/Ciclo/list.xhtml" value="#{msj['formAñoAcademico']}"></h:link>                          
-                  </li>
-                  <li class="treeview">
-                      <h:link outcome="/Apoderado/list.xhtml" value="#{msj['formApoderado']}"></h:link>                          
-                  </li>
-                  <li class="treeview">
-                      <a href="./grado">Grados</a>
-                  </li>
-                  <li class="treeview">
-                      <a href="./turno">Turnos</a>
-                  </li>
-                  <li class="treeview">
-                      <a href="./seccion">Secciones</a>
-                  </li>
-                  <li class="treeview">
-                      <a href="./usuario">Usuarios</a>
-                  </li>
-                  <li class="treeview">
-                      <!--<a href="./">Salir</a>-->
-                      <h:form>
-                        <h:commandButton value="Cerrar sesion" class="link1"
-                                         actionListener="#{managedUsuario.cerrarSesion()}">
-                        </h:commandButton>
-                    </h:form>
-                  </li>
-              </ul>
-            </section>
-            <!-- /.sidebar -->
-          </aside>
-          <!-- =============================================== -->
-          <!-- Content Wrapper. Contains page content -->
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+            <!-- =============================================== -->
+            <!-- Content Wrapper. Contains page content -->
             <ui:insert name="contenido">
             </ui:insert>
             <footer class="main-footer">
-              <div class="pull-right hidden-xs">
-                <b>Version</b> 1.0
-              </div>
-              <strong>Copyright &copy; 2022 </strong> All rights reserved.
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> 1.0
+                </div>
+                <strong>Copyright &copy; 2022 </strong> All rights reserved.
             </footer>
 
-      <!-- Add the sidebar's background. This div must be placed
-      immediately after the control sidebar -->
-      <div class="control-sidebar-bg"></div>
-    </div><!-- ./wrapper -->
+            <!-- Add the sidebar's background. This div must be placed
+            immediately after the control sidebar -->
+            <div class="control-sidebar-bg"></div>
+        </div><!-- ./wrapper -->
         <h:outputScript name="backend/js/jquery/dist/jquery.min.js"></h:outputScript>
         <h:outputScript name="backend/js/bootstrap/dist/js/bootstrap.min.js"></h:outputScript>
         <h:outputScript name="backend/js/AdminLTE/plugins/jQueryUI/jquery-ui.min.js"></h:outputScript>
         <h:outputScript name="backend/js/AdminLTE/dist/js/app.js"></h:outputScript>
         <h:outputScript name="backend/js/AdminLTE/dist/js/demo.js"></h:outputScript>
         <h:outputScript name="backend/js/funcion.js"></h:outputScript>        
-        
+
     </h:body>
 </html>
-

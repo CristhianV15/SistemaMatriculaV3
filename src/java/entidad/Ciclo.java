@@ -8,6 +8,7 @@ package entidad;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -24,6 +25,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import modelo.util.DbEstado;
 
 /**
  *
@@ -131,4 +133,15 @@ public class Ciclo implements Serializable {
         return "entidad.Ciclo[ idCiclo=" + idCiclo + " ]";
     }
     
+    public String getEstadoString() {
+        String est = "";
+        List<DbEstado> estados = (new DbEstado()).getEstadosAll();
+        for (int i = 0; i < estados.size(); i++) {
+            if ( estados.get(i).getId() == this.estado ) {
+                est = estados.get(i).getNombre();
+                break;
+            }
+        }
+        return est;
+    }
 }

@@ -8,10 +8,13 @@ package entidad;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,6 +28,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import modelo.util.DbEstado;
 
 /**
  *
@@ -51,8 +55,8 @@ public class Alumno implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idAlumno")
     private Integer idAlumno;
     @Size(max = 50)
@@ -97,6 +101,8 @@ public class Alumno implements Serializable {
     private Usuario idUsuarioCreado;
 
     public Alumno() {
+        estado=1;
+        creado=new Date();
     }
 
     public Alumno(Integer idAlumno) {
@@ -248,5 +254,15 @@ public class Alumno implements Serializable {
     public String toString() {
         return "entidad.Alumno[ idAlumno=" + idAlumno + " ]";
     }
-    
+     public String getEstadoString() {
+        String est = "";
+        List<DbEstado> estados = (new DbEstado()).getEstadosAll();
+        for (int i = 0; i < estados.size(); i++) {
+            if ( estados.get(i).getId() == this.estado ) {
+                est = estados.get(i).getNombre();
+                break;
+            }
+        }
+        return est;
+    }
 }

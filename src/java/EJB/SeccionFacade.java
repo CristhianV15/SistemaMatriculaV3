@@ -5,7 +5,9 @@
  */
 package EJB;
 
+import entidad.Grado;
 import entidad.Seccion;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +30,7 @@ public class SeccionFacade extends AbstractFacade<Seccion> implements SeccionFac
     public SeccionFacade() {
         super(Seccion.class);
     }
-    
+     public List<Grado> findByEstado() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

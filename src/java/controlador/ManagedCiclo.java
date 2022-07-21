@@ -24,17 +24,23 @@ public class ManagedCiclo {
     @EJB
     CicloFacadeLocal cicloFacadeLocal;
     private List<Ciclo> listarCiclo;
+    private List<Ciclo> listarCiclo2;
     private Ciclo ciclo;
-    
+
+ 
+    public void setListarCiclo2(List<Ciclo> listarCiclo2) {
+        this.listarCiclo2 = listarCiclo2;
+    }
+     public List<Ciclo> getListarCiclo2() {
+         listarCiclo2= cicloFacadeLocal.findAll();
+        return listarCiclo2;
+    }
+
      public List<Ciclo> getListarCiclo() {
-        listarCiclo = cicloFacadeLocal.findAll();
+        listarCiclo = cicloFacadeLocal.buscarCiclo(ciclo);
         return listarCiclo;
     }
-    
-    public List<Ciclo> getListarCicloPorEstado(){
-       listarCiclo= cicloFacadeLocal.findByEstado();
-       return listarCiclo;
-    }
+     
     public void setListarCiclo(List<Ciclo> listarCiclo) {
         this.listarCiclo = listarCiclo;
     }

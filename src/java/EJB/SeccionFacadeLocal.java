@@ -27,7 +27,7 @@ public interface SeccionFacadeLocal {
     List<Seccion> findAll();
 
     List<Seccion> findRange(int[] range);
-
+    List<Seccion> buscarSeccion(Seccion se);
     int count();
     
 }

@@ -38,13 +38,6 @@
                                             <br></br>
                                             <h:inputText value="#{managedCiclo.ciclo.nombreCiclo}" class="form-control" autocomplete="off"> </h:inputText>
                                         </div>
-                                        <div class="form-group">
-                                            <h:outputLabel value="#{msj['formAñoAcademicoEstado']}" ></h:outputLabel><br></br>
-                                            <h:selectOneMenu value="#{managedCiclo.ciclo.estado}">
-                                                <f:selectItem itemValue="1" itemLabel="#{msj['formAñoAcademicoEstadoActivo']}"></f:selectItem>
-                                                <f:selectItem itemValue="0" itemLabel="#{msj['formAñoAcademicoEstadoInactivo']}"></f:selectItem>
-                                            </h:selectOneMenu>
-                                        </div>
                                     </div><!-- /.box-body -->
                                     <div class="box-footer">
                                         <h:commandButton value="#{msj['buttonGuardar']}" class="btn btn-sm btn-primary" actionListener="#{managedCiclo.guardarCiclo()}" action="list.xhtml"></h:commandButton> &nbsp;

@@ -77,6 +77,8 @@ public class Matricula implements Serializable {
     private Usuario idUsuarioModificado;
 
     public Matricula() {
+        estado=1;
+        creado= new Date();
     }
 
     public Matricula(Integer idMatricula) {
