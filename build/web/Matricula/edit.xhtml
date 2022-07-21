@@ -11,8 +11,12 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        <h:outputText value="#{msj['formApoderado']}"></h:outputText>
+                        Matrícula
                     </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+
+                    </ol>
                 </section>
 
                 <!-- Main content -->
@@ -22,62 +26,56 @@
                             <!-- general form elements -->
                             <div class="box box-primary">
                                 <div class="box-header with-border">
-                                    <h:outputText  value="#{msj['formApoderadoEditarApoderado']}"></h:outputText>
+                                    <h3 class="box-title">#{msj['formMatriculaEditar']} Matrícula</h3>
                                 </div><!-- /.box-header -->
                                 <!-- form start -->
                                 <h:form>
-                                    <h:inputHidden value="#{managedApoderado.apoderado.idApoderado}"></h:inputHidden>
+                                    <h:inputHidden value="#{managedMatricula.matricula.idMatricula}"></h:inputHidden>
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <h:outputLabel value="#{msj['tablanombre']}"></h:outputLabel>
-                                            <br></br>
-                                            <h:inputText value="#{managedApoderado.apoderado.nombres}" class="form-control"> </h:inputText>
+                                            <h:outputLabel value="#{msj['formMatriculaAlumno']}" ></h:outputLabel><br></br>
+                                            <h:selectOneMenu id="alu" class="form-control select-auto" value="#{managedMatricula.matricula.idAlumno.idAlumno}" required="true" readonly="true" disabled="true">                                                
+                                                <f:selectItems value="#{managedMatricula.listarAlumnos}" 
+                                                               var="a"
+                                                               itemLabel="#{a.getNombreCompleto()}"
+                                                               itemValue="#{a.idAlumno}">
+                                                </f:selectItems>                                                
+                                            </h:selectOneMenu>
+                                            <h:message for="alu" class="text-danger"></h:message>
                                         </div>
                                         <div class="form-group">
-                                            <h:outputLabel value="#{msj['formApoderadoApellidoPaterno']}" ></h:outputLabel><br></br>
-                                            <h:inputText value="#{managedApoderado.apoderado.apellidoPaterno}" class="form-control"> </h:inputText>
+                                            <h:outputLabel value="#{msj['formMatriculaSalon']}" ></h:outputLabel><br></br>
+                                            <h:selectOneMenu id="sal" class="form-control select-auto" value="#{managedMatricula.matricula.idSalon.idSalon}" required="true">
+                                                <f:selectItem></f:selectItem>
+                                                <f:selectItems value="#{managedMatricula.listarSalones}" 
+                                                               var="b"
+                                                               itemLabel="#{b.getNombreSalon()}"
+                                                               itemValue="#{b.idSalon}">
+                                                </f:selectItems>                                                
+                                            </h:selectOneMenu>
+                                            <h:message for="sal" class="text-danger"></h:message>
                                         </div>
                                         <div class="form-group">
-                                            <h:outputLabel value="#{msj['formApoderadoApellidoMaterno']}" ></h:outputLabel><br></br>
-                                            <h:inputText value="#{managedApoderado.apoderado.apellidoMaterno}" class="form-control"> </h:inputText>
+                                            <h:outputLabel value="#{msj['formMatriculaEstado']}" ></h:outputLabel><br></br>
+                                            <h:selectOneMenu id="forest" class="form-control select-auto" value="#{managedMatricula.matricula.estado}" required="true">
+                                                <f:selectItem itemValue="2" itemLabel="Inscrito"></f:selectItem>
+                                                <f:selectItem itemValue="1" itemLabel="Matriculado"></f:selectItem>
+                                            </h:selectOneMenu>
+                                            <h:message for="forest" class="text-danger"></h:message>
                                         </div>
-                                        <div class="form-group">
-                                                <h:outputLabel value="#{msj['formApoderadoTipoDocumento']}" ></h:outputLabel><br></br>
-                                                    <h:selectOneMenu value="#{managedApoderado.apoderado.tipoDocumento}">
-                                                        <f:selectItem itemValue="DNI" itemLabel="DNI"></f:selectItem>
-                                                        <f:selectItem itemValue="Pasaporte" itemLabel="#{msj['formApoderadoPasaporte']}"></f:selectItem>
-                                                    </h:selectOneMenu>
-                                        </div>
-                                        <div class="form-group">
-                                            <h:outputLabel value="#{msj['formApoderadoNumeroDocumento']}" ></h:outputLabel><br></br>
-                                            <h:inputText value="#{managedApoderado.apoderado.numeroDocumento}" class="form-control"> </h:inputText>
-                                        </div>
-                                        <div class="form-group">
-                                            <h:outputLabel value="Email" ></h:outputLabel><br></br>
-                                            <h:inputText value="#{managedApoderado.apoderado.email}" class="form-control"> </h:inputText>
-                                        </div>
-                                        <div class="form-group">
-                                            <h:outputLabel value="#{msj['formApoderadoCelular']}" ></h:outputLabel><br></br>
-                                            <h:inputText value="#{managedApoderado.apoderado.celular}" class="form-control"> </h:inputText>
-                                        </div>
-                                        <div class="form-group">
-                                            <h:outputLabel value="#{msj['formApoderadoDireccion']}" ></h:outputLabel><br></br>
-                                            <h:inputText value="#{managedApoderado.apoderado.direccion}" class="form-control" ></h:inputText>
-                                        </div>
-                                    </div><!-- /.box-body -->
-                                    <div class="box-footer">
-                                        <h:commandButton value="#{msj['buttonEditar']}" class="btn btn-sm btn-primary" actionListener="#{managedApoderado.modificar()}" action="list.xhtml"></h:commandButton>
+                                    </div>
+                                    <div class="box-footer">                                                                                
+                                        <h:commandButton value="#{msj['formMatriculaGuardar']}" class="btn btn-sm btn-primary" actionListener="#{managedMatricula.modificar()}" action="list.xhtml"></h:commandButton>
                                         &nbsp;
-                                        <h:commandButton value="#{msj['buttonRegresar']}" class="btn btn-sm btn-danger " action="list.xhtml"></h:commandButton>
+                                        <h:commandButton value="#{msj['formMatriculaRegresarLista']}" class="btn btn-sm btn-danger " action="list.xhtml"></h:commandButton>
                                     </div>
                                 </h:form>
-                            </div><!-- /.box -->
-                        </div>
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
                     </div>
-                </section><!-- /.content -->
 
+                </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
         </ui:define>
     </ui:composition>
 </html>
-

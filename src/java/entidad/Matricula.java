@@ -6,7 +6,9 @@
 package entidad;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +24,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import modelo.util.DbEstado;
 
 /**
  *
@@ -197,5 +200,22 @@ public class Matricula implements Serializable {
     public String toString() {
         return "entidad.Matricula[ idMatricula=" + idMatricula + " ]";
     }
-    
+    public String getEstadoString() {
+        String est = "";
+        List<DbEstado> estados = (new DbEstado()).getEstadosMatricula();
+        for (int i = 0; i < estados.size(); i++) {
+            if ( estados.get(i).getId() == this.estado ) {
+                est = estados.get(i).getNombre();
+                break;
+            }
+        }
+        return est;
+    }
+    public String getCreadoString(){
+        String creadoText = "";
+        if(this.creado != null){
+            creadoText = new SimpleDateFormat("dd/MM/yyyy KK:mm a").format(this.creado);
+        }
+        return creadoText;
+    }
 }

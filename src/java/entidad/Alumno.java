@@ -265,4 +265,12 @@ public class Alumno implements Serializable {
         }
         return est;
     }
+     
+     public String getNombreCompleto (){
+        String nombre = "";
+        nombre = this.apellidoPaterno;
+        nombre += " "+this.apellidoMaterno;
+        nombre += " "+this.nombres;        
+        return nombre;
+    }
 }

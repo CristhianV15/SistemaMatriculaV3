@@ -88,7 +88,6 @@ public class ManagedAlumno {
     public void modificar(){
         this.alumno.setIdApoderado(apoderado);
         this.alumno.setIdUsuarioCreado(usuario);
-        this.alumno.setIdUsuarioCreado(usuario);
         this.alumnoFacadeLocal.edit(alumno);
     }
 

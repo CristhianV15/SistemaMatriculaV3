@@ -3,37 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Grado/list.xhtml</file>
+            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/entidad/Seccion.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/bundle/texto_es.properties</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Matricula/list.xhtml</file>
+            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/SeccionFacade.java</file>
+            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/MatriculaFacadeLocal.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Apoderado/add.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/resources/backend/css/ionicons.min.css</file>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Usuario/edit.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Salon/list.xhtml</file>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/controlador/ManagedGrado.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/resources/backend/css/font-awesome/css/font-awesome.css</file>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Alumno/add.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/CicloFacadeLocal.java</file>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Usuario/add.xhtml</file>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Usuario/list.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Salon/edit.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/controlador/ManagedMatricula.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/inicio/add.xhtml</file>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Grado/add.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/resources/backend/js/AdminLTE/dist/css/AdminLTE.css</file>
+            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/MatriculaFacade.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Matricula/edit.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/GradoFacadeLocal.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Matricula/add.xhtml</file>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/controlador/ManagedUsuario2.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Ciclo/list.xhtml</file>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Grado/edit.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/entidad/Matricula.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/AlumnoFacade.java</file>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Alumno/list.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/AbstractFacade.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/entidad/Ciclo.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/resources/backend/css/main.css</file>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/controlador/ManagedSalon.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/logueo.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Apoderado/edit.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/GradoFacade.java</file>
@@ -41,19 +34,24 @@
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Ciclo/edit.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/ApoderadoFacade.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/entidad/Salon.java</file>
+            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/SeccionFacadeLocal.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Apoderado/list.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/modelo/util/DbEstado.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/template/plantilla.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/controlador/ManagedApoderado.java</file>
-            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Alumno/edit.xhtml</file>
+            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Turno/list.xhtml</file>
+            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/TurnoFacade.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/entidad/Alumno.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/entidad/Usuario.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/CicloFacade.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/Ciclo/add.xhtml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/entidad/Grado.java</file>
+            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/TurnoFacadeLocal.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/EJB/AlumnoFacadeLocal.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/entidad/Apoderado.java</file>
+            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/entidad/Turno.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/resources/backend/css/font-awesome/css/font-awesome.min.css</file>
+            <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/web/WEB-INF/faces-config.xml</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/bundle/texto_en.properties</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/controlador/ManagedUsuario.java</file>
             <file>file:/C:/xampp/htdocs/SistemaMatriculaV3/src/java/controlador/ManagedAlumno.java</file>

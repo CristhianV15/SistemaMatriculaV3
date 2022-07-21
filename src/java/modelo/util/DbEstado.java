@@ -21,6 +21,14 @@ public class DbEstado {
         //lista.add((new DbEstado(3, "Anulado")));        
         return lista;
     }
+    
+    public List<DbEstado> getEstadosMatricula(){
+        List<DbEstado> lista = new ArrayList<>();
+        lista.add((new DbEstado(1, "Matriculado")));
+        lista.add((new DbEstado(2, "Inscrito")));
+        //lista.add((new DbEstado(3, "Anulado")));        
+        return lista;
+    }
 
     public DbEstado() {
     }

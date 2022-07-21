@@ -7,6 +7,7 @@ package EJB;
 
 import entidad.Ciclo;
 import entidad.Grado;
+import entidad.Matricula;
 import entidad.Seccion;
 import entidad.Turno;
 import entidad.Usuario;
@@ -99,5 +100,29 @@ public abstract class AbstractFacade<T> {
          String jpql= "SELECT s FROM Seccion s WHERE s.estado = 1";
          Query query = getEntityManager().createQuery(jpql);
         return query.getResultList();
+    }
+    
+    //Para matricula
+     public List<Object[]> listarAlumnos(){
+        String jpql = "Select a from Alumno a where a.estado <>0 order by a.apellidoPaterno, a.apellidoMaterno, a.nombres";
+        Query query = getEntityManager().createQuery(jpql);
+        return query.getResultList();
+    }
+    public List<Object[]> listarCiclos(){
+        String jpql = "Select a from Ciclo a where a.estado <>0 order by a.nombreCiclo";
+        Query query = getEntityManager().createQuery(jpql);
+        return query.getResultList();
+    }
+    public List<Object[]> listarSalones(){
+        String jpql = "Select a from Salon a where a.estado <>0";
+        Query query = getEntityManager().createQuery(jpql);
+        return query.getResultList();
+    }
+    public void matriculaUpdate(Matricula m){
+        String jpql = "update matricula set idAlumno=?1 where idMatricula=?2";
+        Query query = getEntityManager().createNativeQuery(jpql);
+        query.setParameter(1, m.getIdAlumno().getIdAlumno());
+        query.setParameter(2, m.getIdMatricula());
+        query.executeUpdate();
     }
 }

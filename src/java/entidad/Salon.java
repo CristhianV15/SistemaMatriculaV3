@@ -80,8 +80,8 @@ public class Salon implements Serializable {
     private Usuario idUsuarioModificado;
 
     public Salon() {
-        estado=1;
-        creado= new Date();
+        estado = 1;
+        creado = new Date();
     }
 
     public Salon(Integer idSalon) {
@@ -205,9 +205,18 @@ public class Salon implements Serializable {
         return true;
     }
 
+    public String getNombreSalon() {
+        String nombre = "";
+        nombre = this.getIdCiclo().getNombreCiclo();
+        nombre += " | " + this.getIdGrado().getNombreGrado();
+        nombre += " | " + this.getIdTurno().getNombreTurno();
+        nombre += " | " + this.getIdSeccion().getNombreSeccion();
+        return nombre;
+    }
+
     @Override
     public String toString() {
         return "entidad.Salon[ idSalon=" + idSalon + " ]";
     }
-    
+
 }
